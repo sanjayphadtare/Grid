@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="false">
+    <span>{{selectedItem?.label}}</span>
+    <i class="fas fa-chevron-down dropdown-icon"></i>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2" (click)="valueChanged($event)">
+    <button class="dropdown-item" type="button" *ngFor="let item of items"
+      data-value={{item.value}}>{{item.label}}</button>
+  </div>
+</div>

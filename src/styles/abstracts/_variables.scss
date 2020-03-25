@@ -1,0 +1,19 @@
+@import '../../node_modules/sass-rem/rem';
+
+$rem-baseline: 10px;
+
+// Topbar dimensions
+$topbar-height: rem(60px);
+$topbar-width: 100%;
+
+// Sidebar dimensions
+$menubar-height: rem(70px);
+$menubar-width: 100%;
+
+// footer dimensions
+$footer-height: rem(60px);
+$copyright-bar: rem(50px);
+
+$main-section-height: calc(100vh - #{$topbar-height + $menubar-height + $footer-height + $copyright-bar});
+
+$app-padding: 20px;

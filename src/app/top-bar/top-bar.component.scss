@@ -1,0 +1,63 @@
+@import 'abstracts/variables';
+@import 'themes/theme';
+
+$foreground-color: lighten($color-secondary, 10%);
+
+.topbar {
+  background-color: $color-primary;
+  color: $color-light-foreground;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: $topbar-height;
+  padding: rem(10px $app-padding);
+
+  &-left, &-right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &-item {
+    padding: rem(2px 0);
+    // border-left: 1px solid $foreground-color;
+    display: flex;
+    align-items: center;
+    &.no-sep {
+      border-left: 0;
+    }
+    &.right-sep {
+      border-right: 1px solid $foreground-color;
+    }
+    &.no-pad {
+      padding: 0;
+    }
+  }
+}
+
+.logo-img {
+  height: 25px;
+}
+.user {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    color: darken($color-light-foreground, 5%);
+  }
+
+  &-details-icon {
+    margin-left: rem(10px);
+  }
+}
+
+.btn-logoff {
+  background-color: $foreground-color;
+  color: $color-light-foreground;
+  font-size: rem(12px);
+  font-weight: bold;
+}

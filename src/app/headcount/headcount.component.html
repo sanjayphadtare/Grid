@@ -1,0 +1,83 @@
+<div class="headcount">
+  <div class="tab-items" *ngIf="(selectedMenu$ | async) as selMenu">
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.HEADCOUNT}" (click)="setMenu(Menus.HEADCOUNT)">
+      <span>Headcount</span>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.CHANGE_REQ}" (click)="setMenu(Menus.CHANGE_REQ)">
+      <span>Change Request</span>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.DIRECT_COST}" (click)="setMenu(Menus.DIRECT_COST)">
+      <span>Direct Costs</span>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.PLAN_HEAD}" (click)="setMenu(Menus.PLAN_HEAD)">
+      <span>Plan headcount</span>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.PLAN_ALLOC}" (click)="setMenu(Menus.PLAN_ALLOC)">
+      <span>Plan Allocation</span>
+    </div>
+    <div class="tab-item tab-item-rem">&nbsp;</div>
+  </div>
+  <div>
+    <div class="action-btns">
+      <div class="btn btn-icon btn-no-color" (click)="toggleFilters()">
+        <i class="fas fa-filter"></i>
+        <span>Filter</span>
+      </div>
+    </div>
+    <pion-dynamic-grid *ngIf="headcountItems && headcountItems.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th fixed><span>&nbsp;</span></th>
+            <th fixed>&nbsp;</th>
+            <th fixed>&nbsp;</th>
+            <th *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
+              <span>{{col.title}}</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [ngClass]="{'filters-hidden': !showFilters}">
+            <td fixed>&nbsp;</td>
+            <td fixed>&nbsp;</td>
+            <td fixed>&nbsp;</td>
+            <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
+              <input type="text" />
+            </td>
+          </tr>
+          <tr *ngFor="let item of headcountItems">
+            <td fixed>
+              <span>&nbsp;<i class="far fa-eye"></i>&nbsp;</span>
+            </td>
+            <td fixed>
+              <span>&nbsp;<input type="checkbox" />&nbsp;</span>
+            </td>
+            <td fixed>
+              <span>&nbsp;<i class="fas fa-lock"></i>&nbsp;</span>
+            </td>
+            <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null" >
+              <span>{{item[col.field]}}</span>
+              <ng-container [ngSwitch]="col.field">
+                <span *ngSwitchCase="'position_id'">
+                  &nbsp;&nbsp;<i class="fas fa-link"></i>
+                </span>
+                <span *ngSwitchCase="'approval_status'">
+                  <span *ngIf="item[col.field] == 'Approved'" >&nbsp;&nbsp;<i class="fas fa-exclamation approved-icon"></i></span>
+                </span>
+                <span *ngSwitchCase="'pending_with'">
+                  <span *ngIf="item[col.field] == 'Business Manger'">&nbsp;&nbsp;<i class="fas fa-exclamation approved-icon"></i></span>
+                </span>
+              </ng-container>
+              
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </pion-dynamic-grid>
+  </div>
+</div>

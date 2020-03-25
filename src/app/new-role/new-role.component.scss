@@ -1,0 +1,35 @@
+@import 'abstracts/variables';
+@import 'themes/theme';
+
+$padding: rem(15px $app-padding);
+
+.new-role {
+  color: $color-dark-foreground;
+
+  &-menubar, &-details, &-footer {
+    padding: $padding;
+  }
+
+  &-menubar {
+    background-color: $color-secondary;
+    min-height: $menubar-height;
+    color: $color-light-foreground;
+    display: flex;
+    align-items: center;
+  }
+
+  &-details, &-footer {
+    background-color: $color-body;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left-section {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+}

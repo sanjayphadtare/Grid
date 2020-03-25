@@ -1,0 +1,33 @@
+@import 'abstracts/variables';
+@import 'themes/theme';
+
+.footer-bar {
+  height: $footer-height;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $color-secondary;
+  padding: rem(15px $app-padding);
+  color: $color-light-foreground;
+}
+
+.copyright-bar {
+  height: $copyright-bar;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-primary;
+  padding: rem(15px $app-padding);
+  color: $color-light-foreground;
+  font-size: 0.85em;
+
+  &-left-section {
+    display: flex;
+    align-items: center;
+  }
+
+  &-right-section {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

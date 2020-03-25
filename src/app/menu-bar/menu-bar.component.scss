@@ -1,0 +1,38 @@
+@import 'abstracts/variables';
+@import 'themes/theme';
+
+$foreground-color: lighten($color-secondary, 10%);
+.menubar {
+  background-color: $color-secondary;
+  color: $color-light-foreground;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: $menubar-height;
+  padding: rem(15px $app-padding);
+
+  &-left, &-right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.menu-items {
+  display: flex;
+  align-items: center;
+  .menu-item {
+    padding: rem(8px 0);
+    cursor: pointer;
+
+    &-selected {
+      border-bottom: 2px solid $color-highlight;
+      font-weight: bold;
+    }
+  }
+}
+
+.btn {
+  padding: rem(6px 12px);
+  color: inherit;
+}

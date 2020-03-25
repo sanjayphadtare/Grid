@@ -1,0 +1,204 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~ngx-bootstrap/datepicker/bs-datepicker.scss";
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
+@import "./abstracts/types";
+@import "./themes/theme";
+
+// @import './layout/grid';
+@import "./base/typography";
+@import "./components/buttons";
+
+:root {
+  @include rem-baseline;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-family-normal;
+  font-size: rem(14px);
+  margin: 0;
+}
+
+pion-dropdown.form-field-input,
+pion-datepicker.form-field-input {
+  padding: 0;
+}
+
+accordion-group .panel {
+  padding: rem(10px 0);
+  border: 0;
+  &-heading {
+    background-color: transparent;
+    border-bottom: 0;
+  }
+  &-heading,
+  &-collapse {
+    padding: 0;
+    .panel-body {
+      padding: rem(0 15px);
+    }
+  }
+}
+accordion-group.panel-open {
+  .accordion-show-icon {
+    transform: rotate(180deg);
+  }
+}
+
+// Separator classes
+.sep-left {
+  border-left: 1px solid $color-dark-border;
+}
+
+.sep-right {
+  border-right: 1px solid $color-dark-border;
+}
+
+.sep-bottom {
+  border-bottom: 1px solid $color-dark-border;
+}
+
+.sep-top {
+  border-top: 1px solid $color-dark-border;
+}
+.sep-vt-primary {
+  border-top: 1px solid $color-primary;
+  border-bottom: 1px solid $color-primary;
+}
+
+//*************************************************************************************************
+
+.text-sm {
+  font-size: 0.9em;
+}
+
+//*************************************************************************************************
+// Margin utility classes
+.mg-none {
+  margin: 0;
+}
+.mg-auto {
+  margin: 0 auto;
+}
+.mg-hz-xxs {
+  margin-left: rem(3px);
+  margin-right: rem(3px);
+}
+.mg-hz-xs {
+  margin-left: rem(5px);
+  margin-right: rem(5px);
+}
+.mg-hz-sm {
+  margin-left: rem(7px);
+  margin-right: rem(7px);
+}
+.mg-hz-md {
+  margin-left: rem(10px);
+  margin-right: rem(10px);
+}
+.mg-hz-lg {
+  margin-left: rem(15px);
+  margin-right: rem(15px);
+}
+.mg-vt-xxs {
+  margin-top: rem(3px);
+  margin-bottom: rem(3px);
+}
+.mg-vt-xs {
+  margin-top: rem(5px);
+  margin-bottom: rem(5px);
+}
+.mg-vt-sm {
+  margin-top: rem(7px);
+  margin-bottom: rem(7px);
+}
+.mg-vt-md {
+  margin-top: rem(10px);
+  margin-bottom: rem(10px);
+}
+.mg-vt-lg {
+  margin-top: rem(15px);
+  margin-bottom: rem(15px);
+}
+
+.pad-none {
+  padding: 0;
+}
+
+//*************************************************************************************************
+
+// Flex utility classes
+.d-flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.justify-content-start {
+  justify-content: flex-start;
+}
+.justify-content-end {
+  justify-content: flex-end;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+.align-items-end {
+  align-items: flex-end;
+}
+.align-items-center {
+  align-items: center;
+}
+.align-items-around {
+  align-items: space-around;
+}
+.align-items-between {
+  align-items: space-between;
+}
+
+//*************************************************************************************************
+// Forms classess
+
+.form-field {
+  display: flex;
+  align-items: center;
+  margin: rem(15px 0);
+  font-size: 14px;
+
+  &-label {
+    width: 20%;
+  }
+  &-input {
+    width: 35%;
+    padding: rem(10px 10px);
+    border: 1px solid $color-dark-border;
+    font-size: inherit;
+  }
+}
+
+.field-required {
+  color: $color-highlight;
+}
+//**************************************************************************************************

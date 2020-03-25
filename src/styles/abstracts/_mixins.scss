@@ -1,0 +1,22 @@
+// breakpoints(bp) for various devices
+// $grid-bp-sm: 576;
+// $grid-bp-md: 768;
+// $grid-bp-lg: 992;
+// $grid-bp-xl: 1200;
+// $grid-bp-xxl: 1400;
+
+// @mixin for-size($size) {
+//   @if $size == xs {
+//     @media (max-width: #{($grid-bp-sm - 1) * 1px}) { @content; }
+//   } @else if $size == sm {
+//     @media (min-width: #{$grid-bp-sm * 1px}) { @content; }
+//   } @else if $size == md {
+//     @media (min-width: #{$grid-bp-md * 1px}) { @content; }
+//   } @else if $size == lg {
+//     @media (min-width: #{$grid-bp-lg * 1px}) { @content; }
+//   } @else if $size == xl {
+//     @media (min-width: #{$grid-bp-xl * 1px}) { @content; }
+//   } @else if $size == xxl {
+//     @media (min-width: #{$grid-bp-xxl * 1px}) { @content; }
+//   }
+// }

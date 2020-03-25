@@ -1,0 +1,128 @@
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  font-size: inherit;
+  border-radius: 0.25rem;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.btn:not(:disabled) {
+  cursor: pointer;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  > *:first-child {
+    margin-right: rem(10px);
+  }
+}
+.btn-highlight {
+  background-color: $color-highlight;
+  color: $color-body;
+}
+.btn-border {
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+// this class will have background color as transparent
+.btn.btn-no-color {
+  background-color: transparent;
+}
+
+//breadcrumb styles
+.c-breadcrumb {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  color: $color-light-foreground;
+
+  &-btn {
+    flex: 1;
+    color: $color-light-border;
+    display: flex;
+    text-align: left;
+    background: $color-breadcrumb-not-visited;
+    text-decoration: none;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px 0 5px;
+    text-align: center;
+    margin-right: 23px;
+
+    &:first-child {
+      border-radius: rem(4px 0 0 4px);
+      &:before {
+        border: none;
+      }
+    }
+
+    &:last-child {
+      &:after {
+        border-radius: rem(0 4px 4px 0);
+        border-color: $color-breadcrumb-not-visited;
+      }
+      // &.selected {
+      //   &::after {
+      //     border-color: $color-breadcrumb-selected;
+      //   }
+      // }
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      border: 0 solid $color-breadcrumb-not-visited;
+      border-width: 20px 10px;
+      width: 0;
+      height: 0;
+    }
+
+    &::before {
+      left: -20px;
+      border-left-color: transparent;
+    }
+    &::after {
+      left: 100%;
+      border-color: transparent;
+      border-left-color: $color-breadcrumb-not-visited;
+    }
+
+    &.selected {
+      background-color: $color-breadcrumb-selected;
+
+      &:before {
+        border-color: $color-breadcrumb-selected;
+        border-left-color: transparent;
+      }
+      &:after {
+        border-color: $color-breadcrumb-selected;
+      }
+    }
+
+    &.visited {
+      background-color: $color-breadcrumb;
+
+      &:before {
+        border-color: $color-breadcrumb;
+        border-left-color: transparent;
+      }
+      &:after {
+        border-color: $color-breadcrumb;
+      }
+    }
+  }
+}
+

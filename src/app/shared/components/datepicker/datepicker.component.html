@@ -1,0 +1,5 @@
+<div class="date-picker">
+  <input class="date-picker-input" bsDatepicker [bsConfig]="bsConfig" #dp="bsDatepicker" readonly
+    (click)="inputClickHandler($event)" [bsValue]="bsValue"/>
+  <i class="far fa-calendar-alt date-picker-icon" (click)="dp.toggle()"></i>
+</div>
