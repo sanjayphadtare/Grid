@@ -7,11 +7,11 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.component';
-
-
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { ContextMenuComponent } from './components/context-menu/context-menu.component';
 
 @NgModule({
-  declarations: [MenuTabsComponent, DropdownComponent, DatepickerComponent, DynamicGridComponent],
+  declarations: [MenuTabsComponent, DropdownComponent, DatepickerComponent, DynamicGridComponent, PaginationComponent, ContextMenuComponent],
   imports: [
     CommonModule,
     BsDropdownModule.forRoot(),
@@ -25,7 +25,9 @@ import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.com
     MenuTabsComponent,
     DropdownComponent,
     DatepickerComponent,
-    DynamicGridComponent
+    DynamicGridComponent,
+    PaginationComponent,
+    ContextMenuComponent
   ]
 })
 export class SharedModule { }

@@ -51,33 +51,39 @@
           </tr>
           <tr *ngFor="let item of headcountItems">
             <td fixed>
-              <span>&nbsp;<i class="far fa-eye"></i>&nbsp;</span>
+              <span><i class="far fa-eye"></i></span>
             </td>
             <td fixed>
-              <span>&nbsp;<input type="checkbox" />&nbsp;</span>
+              <span><input type="checkbox" /></span>
             </td>
             <td fixed>
-              <span>&nbsp;<i class="fas fa-lock"></i>&nbsp;</span>
+              <span *ngIf="item['approval_status'] !== 'Approved'"><i class="fas fa-lock"></i></span>
+              <pion-context-menu *ngIf="item['approval_status'] === 'Approved'" [menuItems]="roleContextMenuItems">
+                <i class="fas fa-bars dropdown-handle"></i>
+              </pion-context-menu>
             </td>
-            <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null" >
+            <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
               <span>{{item[col.field]}}</span>
               <ng-container [ngSwitch]="col.field">
                 <span *ngSwitchCase="'position_id'">
                   &nbsp;&nbsp;<i class="fas fa-link"></i>
                 </span>
                 <span *ngSwitchCase="'approval_status'">
-                  <span *ngIf="item[col.field] == 'Approved'" >&nbsp;&nbsp;<i class="fas fa-exclamation approved-icon"></i></span>
+                  <span *ngIf="item[col.field] == 'Approved'">&nbsp;&nbsp;<i
+                      class="fas fa-exclamation approved-icon"></i></span>
                 </span>
                 <span *ngSwitchCase="'pending_with'">
-                  <span *ngIf="item[col.field] == 'Business Manger'">&nbsp;&nbsp;<i class="fas fa-exclamation approved-icon"></i></span>
+                  <span *ngIf="item[col.field] == 'Business Manger'">&nbsp;&nbsp;<i
+                      class="fas fa-info-circle info-icon"></i></span>
                 </span>
               </ng-container>
-              
+
             </td>
           </tr>
 
         </tbody>
       </table>
     </pion-dynamic-grid>
+    <pion-pagination></pion-pagination>
   </div>
 </div>

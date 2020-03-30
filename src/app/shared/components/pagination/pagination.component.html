@@ -1,0 +1,18 @@
+<div class="pagination d-flex justify-content-between align-items-center">
+	<div class="show-section d-flex justify-content-start align-items-center">
+		<span>Show</span>
+		<pion-dropdown class="no-top-pad no-box-shadow" [items]="showCounts" [selectedItem]="selectedCount"></pion-dropdown>
+		<span>of 1098 roles</span>
+	</div>
+	<div class="page-section d-flex justify-content-end align-items-center">
+		<span>Page</span>
+		<pion-dropdown class="no-top-pad no-box-shadow" [items]="showCounts" [selectedItem]="selectedCount"></pion-dropdown>
+		<span>of 72</span>
+		<div class="btn btn-icon btn-no-color btn-border" (click)="navigateByUrl('new-role')">
+			<i class="fas fa-chevron-left"></i>
+		</div>
+		<div class="btn btn-icon btn-no-color btn-border" (click)="navigateByUrl('new-role')">
+			<i class="fas fa-chevron-right"></i>
+		</div>
+	</div>
+</div>

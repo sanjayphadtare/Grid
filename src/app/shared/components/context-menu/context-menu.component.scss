@@ -1,0 +1,21 @@
+@import "abstracts/variables";
+@import "themes/theme";
+
+.dropright {
+  .dropdown-toggle{
+    cursor: pointer;
+    &::after {
+      content: none;
+    }
+  }
+  .dropdown-menu {
+    font-size: inherit;
+    padding: 0;
+  }
+  .dropdown-item {
+    padding: rem(5px 15px);
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-headers;
+    }
+  }
+}

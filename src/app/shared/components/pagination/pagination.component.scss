@@ -1,0 +1,26 @@
+@import 'abstracts/variables';
+@import 'themes/theme';
+
+.pagination {
+  width: 100%;
+}
+
+.show-section, .page-section {
+  & > * {
+    margin-right: rem(5px);
+  }
+  pion-dropdown {
+    border: 1px solid $color-dark-border;
+  }
+}
+
+.btn-icon {
+  align-self: stretch;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+
+  > *:first-child {
+    margin-right: 0;
+  }
+}

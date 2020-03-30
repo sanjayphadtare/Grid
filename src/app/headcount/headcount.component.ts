@@ -32,6 +32,8 @@ export class HeadcountComponent implements OnInit {
   headcountItems: Array<app.HeadcountItem> = [];
   showFilters = false;
 
+  roleContextMenuItems = ['Edit role', 'Copy role', 'Recall role', 'Convert role', 'Migrate role', 'Internal Transfer', 'Demise role'];
+
   constructor(private headcountService: HeadcountService, private appService: AppService, private cd: ChangeDetectorRef) {
     this.selectedMenu$ = this.headcountService.selectedHeadcountMenu$;
   }
@@ -40,7 +42,7 @@ export class HeadcountComponent implements OnInit {
     this.headcountService.setHeadcountMenu(this.Menus.HEADCOUNT);
     this.headcountService.getHeadcountData().subscribe(res => {
       this.COLS_MAPPINGS = res.result.columns;
-      this.headcountItems = res.result.data;
+      this.headcountItems = res.result.data.slice(0, 5);
       console.log('COLS_MAPPINGS: ', this.COLS_MAPPINGS);
       console.log(this.headcountItems);
       this.cd.detectChanges();

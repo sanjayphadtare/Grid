@@ -70,6 +70,9 @@ pion-dynamic-grid {
     padding: 3px 5px;
     font-size: 9px;
   }
+  .info-icon {
+    color: darken($color-headers, 20%);
+  }
 
   .fl-rt {
     float: right;

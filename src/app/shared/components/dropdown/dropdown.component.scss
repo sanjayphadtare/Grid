@@ -21,6 +21,9 @@
     & > * {
       padding: rem(5px 0);
     }
+    & > span {
+      padding-right: rem(10px);
+    }
     .dropdown-icon {
       font-size: 1.1em;
       padding-left: rem(10px);
@@ -49,5 +52,19 @@
         font-weight: 600;
       }
     }
+  }
+}
+
+:host.no-top-pad{
+  .dropdown {
+    .dropdown-toggle {
+      padding: rem(0 10px);
+    }
+  }
+}
+
+:host.no-box-shadow {
+  .dropdown .dropdown-menu {
+    box-shadow: none;
   }
 }
