@@ -28,62 +28,69 @@
         <span>Filter</span>
       </div>
     </div>
-    <pion-dynamic-grid *ngIf="headcountItems && headcountItems.length > 0">
-      <table>
-        <thead>
-          <tr>
-            <th fixed><span>&nbsp;</span></th>
-            <th fixed>&nbsp;</th>
-            <th fixed>&nbsp;</th>
-            <th *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
-              <span>{{col.title}}</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr [ngClass]="{'filters-hidden': !showFilters}">
-            <td fixed>&nbsp;</td>
-            <td fixed>&nbsp;</td>
-            <td fixed>&nbsp;</td>
-            <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
-              <input type="text" />
-            </td>
-          </tr>
-          <tr *ngFor="let item of headcountItems">
-            <td fixed>
-              <span><i class="far fa-eye"></i></span>
-            </td>
-            <td fixed>
-              <span><input type="checkbox" /></span>
-            </td>
-            <td fixed>
-              <span *ngIf="item['approval_status'] !== 'Approved'"><i class="fas fa-lock"></i></span>
-              <pion-context-menu *ngIf="item['approval_status'] === 'Approved'" [menuItems]="roleContextMenuItems">
-                <i class="fas fa-bars dropdown-handle"></i>
-              </pion-context-menu>
-            </td>
-            <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
-              <span>{{item[col.field]}}</span>
-              <ng-container [ngSwitch]="col.field">
-                <span *ngSwitchCase="'position_id'">
-                  &nbsp;&nbsp;<i class="fas fa-link"></i>
-                </span>
-                <span *ngSwitchCase="'approval_status'">
-                  <span *ngIf="item[col.field] == 'Approved'">&nbsp;&nbsp;<i
-                      class="fas fa-exclamation approved-icon"></i></span>
-                </span>
-                <span *ngSwitchCase="'pending_with'">
-                  <span *ngIf="item[col.field] == 'Business Manger'">&nbsp;&nbsp;<i
-                      class="fas fa-info-circle info-icon"></i></span>
-                </span>
-              </ng-container>
+    <div *ngIf="headcountItems && headcountItems.length > 0">
+      <pion-dynamic-grid *ngIf="headcountItems && headcountItems.length > 0" >
+        <table>
+          <thead>
+            <tr>
+              <th fixed><span>&nbsp;</span></th>
+              <th fixed>&nbsp;</th>
+              <th fixed>&nbsp;</th>
+              <th *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null" class="col-sortable"
+                (click)="sortHeadcountBy(col.field)">
+                <span>{{col.title}}</span>
+                <i class="fas fa-sort-down sort-icon"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr [ngClass]="{'filters-hidden': !showFilters}">
+              <td fixed>&nbsp;</td>
+              <td fixed>&nbsp;</td>
+              <td fixed>&nbsp;</td>
+              <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
+                <input type="text" />
+              </td>
+            </tr>
+            <tr *ngFor="let item of headcountItems">
+              <td fixed>
+                <span><i class="far fa-eye"></i></span>
+              </td>
+              <td fixed>
+                <span><input type="checkbox" /></span>
+              </td>
+              <td fixed>
+                <span *ngIf="item['approval_status'] !== 'Approved'"><i class="fas fa-lock"></i></span>
+                <pion-context-menu *ngIf="item['approval_status'] === 'Approved'" [menuItems]="roleContextMenuItems">
+                  <i class="fas fa-bars dropdown-handle"></i>
+                </pion-context-menu>
+              </td>
+              <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
+                <span>{{item[col.field]}}</span>
+                <ng-container [ngSwitch]="col.field">
+                  <span *ngSwitchCase="'position_id'">
+                    &nbsp;&nbsp;<i class="fas fa-link"></i>
+                  </span>
+                  <span *ngSwitchCase="'approval_status'">
+                    <span *ngIf="item[col.field] == 'Approved'">&nbsp;&nbsp;<i
+                        class="fas fa-exclamation approved-icon"></i></span>
+                  </span>
+                  <span *ngSwitchCase="'pending_with'">
+                    <span *ngIf="item[col.field] == 'Business Manger'">&nbsp;&nbsp;<i
+                        class="fas fa-info-circle info-icon"></i></span>
+                  </span>
+                </ng-container>
 
-            </td>
-          </tr>
+              </td>
+            </tr>
 
-        </tbody>
-      </table>
-    </pion-dynamic-grid>
-    <pion-pagination></pion-pagination>
+          </tbody>
+        </table>
+      </pion-dynamic-grid>
+      <pion-pagination [pageNo]="reqData.pageNo" [pageOffset]="reqData.pageOffset" [totalCount]="totalCount"
+        (pageNoChanged)="getNewPageData($event)" (pageOffsetChanged)="getNewPageOffsetData($event)">
+      </pion-pagination>
+    </div>
+
   </div>
 </div>
