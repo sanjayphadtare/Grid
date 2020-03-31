@@ -53,7 +53,8 @@ export class HeadcountComponent implements OnInit {
   }
 
   getHeadCountData() {
-    this.headcountService.getHeadcountData(this.reqData).subscribe(res => {
+    this.headcountService.getHeadcountData(this.reqData)
+    .subscribe(res => {
       this.headcountItems = [];
       this.cd.detectChanges();
       //make changes as per new response in a new asynchronous loop

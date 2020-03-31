@@ -23,6 +23,7 @@ export class HeadcountService {
   getHeadcountData(req: app.ApiRequest) {
     console.log('req: ', req);
     //send req object along with the API request to get the exact paged and sorted data
-    return this.http.get<app.ApiResponse<app.HeadcountItem[]>>('/assets/headcount-original.json');
+    return this.http.get<app.ApiResponse<app.HeadcountItem[]>>
+    ('/assets/headcount-original.json');
   }
 }

@@ -7,7 +7,8 @@ declare namespace app {
   interface ApiResponse<T> {
     result: {
       statusCode: number;
-      columns: [{title: string, field: string, isFixed: boolean}];
+      columns: [{title: string, 
+        field: string, isFixed: boolean}];
       totalCount: number;
       data: T
     };
