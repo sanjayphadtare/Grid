@@ -20,7 +20,9 @@ export class HeadcountService {
     this.selectedHeadcountMenuSubject.next(menu);
   }
 
-  getHeadcountData() {
-    return this.http.get<app.ApiResponse<app.HeadcountItem[]>>('/assets/headcount.json');
+  getHeadcountData(req: app.ApiRequest) {
+    console.log('req: ', req);
+    //send req object along with the API request to get the exact paged and sorted data
+    return this.http.get<app.ApiResponse<app.HeadcountItem[]>>('/assets/headcount-original.json');
   }
 }

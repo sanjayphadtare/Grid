@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ElementRef, ContentChild, AfterContentInit, OnChanges, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ElementRef, ContentChild, AfterContentInit, OnChanges, Input, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   templateUrl: './dynamic-grid.component.html',
   styleUrls: ['./dynamic-grid.component.scss']
 })
-export class DynamicGridComponent implements OnInit, AfterContentInit {
+export class DynamicGridComponent implements OnInit, AfterContentInit{
 
   @ViewChild('grid', { static: true })
   grid: ElementRef;
@@ -14,13 +14,18 @@ export class DynamicGridComponent implements OnInit, AfterContentInit {
   thead: HTMLElement;
   tbody: HTMLElement;
 
+  contentInitialized = false;
+
   constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
 
+
   ngAfterContentInit() {
 
+    this.contentInitialized = true;
+    console.log('After content Init');
     const container = this.grid.nativeElement;
 
     // Store references to table elements
@@ -32,12 +37,12 @@ export class DynamicGridComponent implements OnInit, AfterContentInit {
     container.style.position = 'relative';
 
     this.relayout();
-    
+
     let resizeTimeout = null;
     // Update table cell dimensions on resize
     window.addEventListener('resize', () => {
       if (!resizeTimeout) {
-        resizeTimeout = setTimeout( () => {
+        resizeTimeout = setTimeout(() => {
           resizeTimeout = null;
           this.relayout();
         }, 500);
@@ -56,6 +61,8 @@ export class DynamicGridComponent implements OnInit, AfterContentInit {
     });
 
   }
+
+
 
   // Add inline styles to fix the header row and leftmost column
   relayout() {
@@ -118,7 +125,7 @@ export class DynamicGridComponent implements OnInit, AfterContentInit {
     this.thead.style.zIndex = '10';
 
     let fixedWidth = 0;
-    ths.forEach(function (th, i) { 
+    ths.forEach(function (th, i) {
       if (th.hasAttribute('fixed')) {
         fixedWidth += thStyles[i].width;
       }
@@ -140,7 +147,7 @@ export class DynamicGridComponent implements OnInit, AfterContentInit {
           }
         });
     });
-    this.cd.detectChanges();
+    // this.cd.detectChanges();
   }// end function relayout
 
 }

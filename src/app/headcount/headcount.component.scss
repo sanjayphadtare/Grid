@@ -77,4 +77,12 @@ pion-dynamic-grid {
   .fl-rt {
     float: right;
   }
+
+  .sort-icon {
+    margin-left: 10px;
+    font-size: 16px;
+  }
+  .col-sortable {
+    cursor: pointer;
+  }
 }

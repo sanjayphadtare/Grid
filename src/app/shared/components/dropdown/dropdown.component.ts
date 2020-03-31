@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'pion-dropdown',
@@ -12,6 +12,9 @@ export class DropdownComponent implements OnInit {
 
   @Input('selectedItem')
   selectedItem: app.MenuItem;
+
+  @Output('itemChanged')
+  itemChanged = new EventEmitter<app.MenuItem>();
   
   constructor() { }
 
@@ -19,7 +22,8 @@ export class DropdownComponent implements OnInit {
   }
 
   valueChanged($event: any) {
-    this.selectedItem = this.items.find(item => item.value === $event.target.value);
+    this.selectedItem = this.items.find(item => item.value == $event.target.value);
+    this.itemChanged.emit(this.selectedItem);
   }
 
 }

@@ -9,7 +9,7 @@ const COLS_MAPPINGS = [
   { title: 'CToolId', field: 'position_id', sortable: true, fixed: true },
   { title: 'Approval Status', field: 'approval_status', sortable: true, fixed: true },
   { title: 'Pending With', field: 'pending_with', sortable: true, fixed: false },
-  { title: 'Employee Id', field: 'ghrs_employee_id', sortable: true, sorter: 'number' , fixed: false},
+  { title: 'Employee Id', field: 'ghrs_employee_id', sortable: true, sorter: 'number', fixed: false },
   { title: 'Full Name', field: 'employee_name', sortable: true, fixed: false },
   { title: 'Direct Cost - Rest of the Year($)', field: 'rate_amount', sortable: false, fixed: false },
   { title: 'Role Start Date', field: 'plan_start_date', sortable: true, fixed: false },
@@ -31,8 +31,17 @@ export class HeadcountComponent implements OnInit {
   COLS_MAPPINGS: Array<any> = [];
   headcountItems: Array<app.HeadcountItem> = [];
   showFilters = false;
+  totalCount: number = 0;
 
   roleContextMenuItems = ['Edit role', 'Copy role', 'Recall role', 'Convert role', 'Migrate role', 'Internal Transfer', 'Demise role'];
+
+  // default value for request
+  reqData: app.ApiRequest = {
+    pageNo: 0,
+    pageOffset: 15,
+    sortBy: 'roleGridId',
+    employeeId: 4506333
+  }
 
   constructor(private headcountService: HeadcountService, private appService: AppService, private cd: ChangeDetectorRef) {
     this.selectedMenu$ = this.headcountService.selectedHeadcountMenu$;
@@ -40,13 +49,39 @@ export class HeadcountComponent implements OnInit {
 
   ngOnInit() {
     this.headcountService.setHeadcountMenu(this.Menus.HEADCOUNT);
-    this.headcountService.getHeadcountData().subscribe(res => {
-      this.COLS_MAPPINGS = res.result.columns;
-      this.headcountItems = res.result.data.slice(0, 5);
-      console.log('COLS_MAPPINGS: ', this.COLS_MAPPINGS);
-      console.log(this.headcountItems);
+    this.getHeadCountData();
+  }
+
+  getHeadCountData() {
+    this.headcountService.getHeadcountData(this.reqData).subscribe(res => {
+      this.headcountItems = [];
       this.cd.detectChanges();
+      //make changes as per new response in a new asynchronous loop
+      setTimeout(() => {
+        this.COLS_MAPPINGS = res.result.columns;
+        this.headcountItems = res.result.data;
+        this.totalCount = res.result.totalCount;
+        this.cd.detectChanges();
+      }, 0);
+      
     });
+  }
+
+  getNewPageData(pageNo: number) {
+    this.reqData.pageNo = pageNo;
+    this.getHeadCountData();
+  }
+
+  getNewPageOffsetData(pageOffset: number) {
+    this.reqData.pageNo = 0;
+    this.reqData.pageOffset = pageOffset;
+    this.getHeadCountData();
+  }
+
+  sortHeadcountBy(field: string) {
+    this.reqData.sortBy = field;
+    this.reqData.pageNo = 0;  //reset page number to zero after setting sorting field
+    this.getHeadCountData();
   }
 
   toggleFilters() {
