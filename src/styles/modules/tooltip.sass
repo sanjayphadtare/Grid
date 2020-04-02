@@ -1,0 +1,59 @@
+.tooltip
+
+  &
+    border-bottom: rem(1px) dashed $white
+    position: relative
+
+  &::before,
+  &::after
+    bottom: 0
+    display: block
+    opacity: 0
+    pointer-events: none
+    transition: $transition-duration ease-in-out
+    transition-property: bottom, opacity, transform
+    transform: scale(0.75)
+
+  &::before
+    border-top: rem($baseline / 3 * 2) solid $white
+    border-right: rem($baseline / 3 * 2) solid transparent
+    border-left: rem($baseline / 3 * 2) solid transparent
+    content: ' '
+    font-size: 0
+    line-height: 0
+    margin-left: rem($baseline / -3 * 1)
+    position: absolute
+    left: 50%
+    transform-origin: top center
+    width: 0
+    z-index: 3
+    top: rem(-15px)
+
+  &::after
+    @extend .alert
+    color: $default-text-color
+    background: $white
+    border: 0
+    border-radius: 0
+    box-shadow: 0 rem(3px) rem($baseline) transparentize($color-text, 0.6)
+    content: attr(dv-tooltip)
+    position: absolute
+    left: 50%
+    text-align: center
+    margin-left: col-pxwidth(3) / -2
+    margin-bottom: rem($baseline / 3 * 2)
+    transform-origin: bottom center
+    width: col-pxwidth(3)
+    padding: rem(10px)
+    z-index: 1
+    line-height: 1.5
+    word-break: break-word
+  &:hover
+    border-bottom: rem(2px) solid $white
+
+  &:hover::before,
+  &:hover::after
+    bottom: 120%
+    opacity: 1
+    visibility: visible
+    transform: scale(1)
