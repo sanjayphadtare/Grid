@@ -1,0 +1,19 @@
+1, 2 and 3)
+We have created our own very optimized grid component which does all the table manipulation using typescript. This component implements only those functionalities which are required for our application.
+We could have used a readymade third party component for data grid with many features already implemented by their authors. But at the end we would have to customize that component as per our needs which again becomes more cumbersome task than creating our own component. No 3rd party component matches our exact requirement and mockups. There are some paid components available which do many similar tasks but they are heavy and contains tons of extra features which would be heavy for performance and never be of any use in our application. Moreover, they are paid, So we'll have to get the approvals to use them in production.
+
+The problem with the external component is the same as 'Banana Gorilla problem'. In the case of our grid, When we actually want a banana from a component, that external component will be generic and gives us a Gorilla holding a banana alongwith the whole Jungle.
+
+In our case we wanted only a flexible grid which has some columns fixed and some scrollable. Our custom grid component only does that with very optimized speed. We have used content projection for the table so it is always customizable based on our use case.
+
+We don't have fixed style columns in our grid. Every column has some differnt component. Some has dropdowns, some has tooltip, some has hoverable icons, some has clickable controls etc. So it is not possible to provide a uniform grid which handles the data on its own. We have no other option than to use content projection.
+
+4) Any other functionality like selection of grid row, pinning columns can be customized easily. We'll implement the new functionalities whenever they were required. Right now our grid contains the most generic functionality of a flexible grid.
+
+5) For pagination, It doesn't seem to be a good idea to merge the pagination component into grid. Instead, we created a generic pagination component that can be used along with grid and anywhere else in our project. That is functioning as expected.
+
+6) For loading updated data from server, we have used angular mechanisms of *ngFor and *ngIf which are highly optimized and the most basic solution for loading dynamic data.
+
+7) yes coding lines will increase to implement new functionalities. But on any day this would drastically reduce the bundle size as our own component would be strict to our own requirements rather than using the 3rd party component which would contain many more generic unwanted features only to increase the bundle size and affect the performance of overall application.
+
+8) Moreover almost all the 3rd party grids also use the same table , tr and td and iterate over the data.  And why to afraid from table, if they have been already supported by html. We just customized the html table as our need. No extra load :-)
