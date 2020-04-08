@@ -1,0 +1,52 @@
+.tooltip {
+  border-bottom: rem(1px) dashed #fff;
+  position: relative; }
+.tooltip::before, .tooltip::after {
+  bottom: 0;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.15s ease-in-out;
+  transition-property: bottom, opacity, transform;
+  transform: scale(0.75); }
+.tooltip::before {
+  border-top: rem(8px) solid #fff;
+  border-right: rem(8px) solid transparent;
+  border-left: rem(8px) solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+  margin-left: rem(-4px);
+  position: absolute;
+  left: 50%;
+  transform-origin: top center;
+  width: 0;
+  z-index: 3;
+  top: rem(-15px); }
+.tooltip::after {
+  color: #192436;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 rem(3px) rem(12px) rgba(55, 71, 97, 0.4);
+  content: attr(dv-tooltip);
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  margin-left: col-pxwidth(3)/-2;
+  margin-bottom: rem(8px);
+  transform-origin: bottom center;
+  width: col-pxwidth(3);
+  padding: rem(10px);
+  z-index: 1;
+  line-height: 1.5;
+  word-break: break-word; }
+.tooltip:hover {
+  border-bottom: rem(2px) solid #fff; }
+.tooltip:hover::before, .tooltip:hover::after {
+  bottom: 120%;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1); }
+
+/*# sourceMappingURL=style.css.map */
