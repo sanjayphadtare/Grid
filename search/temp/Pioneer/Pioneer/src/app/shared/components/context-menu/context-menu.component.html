@@ -1,0 +1,8 @@
+<div class="dropright">
+    <span type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <ng-content select=".dropdown-handle"></ng-content>
+    </span>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <span *ngFor="let item of menuItems" class="dropdown-item">{{item}}</span>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="pioneer-app">
+  <pion-top-bar></pion-top-bar>
+  <pion-menu-bar *ngIf="showMenuBar$ | async"></pion-menu-bar>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <pion-footer-bar></pion-footer-bar>
+</div>

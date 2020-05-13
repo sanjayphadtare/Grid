@@ -1,0 +1,71 @@
+.modal {
+    &-header, &-body, &-footer {
+        padding: 15px 30px;
+    }
+}
+.modal-header{
+    .close {
+        font-size: 25px;
+    }
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+
+    .left-section {
+        display: flex;
+        button {
+            margin-right: 10px;
+        }
+    }
+}
+
+.btn-primary {
+    background-color: #db2c2b;
+}
+
+.categories {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 10px;
+    .left-section {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        & > * {
+            margin-right: 10px;
+        }
+    }
+}
+.selected {
+    display: flex;
+    flex-wrap: wrap;
+    &-item {
+        display: flex;
+        align-items: center;
+        background-color: #ebeef3;
+        padding: 8px 12px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        .rem-item-icon {
+            margin-left: 10px;
+            cursor: pointer;
+            color: #db2c2b;
+        }
+    }
+}
+
+pion-dropdown.form-field-input {
+    width: 250px;
+}
+input.form-field-input {
+    width: 110px;
+}
+
+pion-datepicker.form-field-input{
+    width: 130px;
+}

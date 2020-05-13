@@ -1,0 +1,101 @@
+
+<div class="headcount">
+  <div class="tab-items" *ngIf="(selectedMenu$ | async) as selMenu">
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.HEADCOUNT.menu}" (click)="navigateByUrl('headcount/home')">
+      <span>Headcount</span>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.CHANGE_REQ.menu}" (click)="navigateByUrl('headcount/change-req')">
+      <span>Change Request</span>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.DIRECT_COST.menu}" (click)="navigateByUrl('headcount/direct-cost')">
+      <span>Direct Costs</span>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.PLAN_HEAD.menu}" (click)="navigateByUrl('headcount/plan-headcount')">
+      <span>Plan headcount</span>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div class="tab-item" [ngClass]="{'selected': selMenu === Menus.PLAN_ALLOC.menu}" (click)="navigateByUrl('headcount/plan-alloc')">
+      <span>Plan Allocation</span>
+    </div>
+    <div class="tab-item tab-item-rem">&nbsp;</div>
+  </div>
+  <!-- <div>
+    <div class="action-btns">
+      <div class="btn btn-icon btn-no-color" (click)="toggleFilters()">
+        <i class="fas fa-filter"></i>
+        <span>Filter</span>
+      </div>
+    </div>
+    <div *ngIf="headcountItems && headcountItems.length > 0">
+      <pion-dynamic-grid *ngIf="headcountItems && headcountItems.length > 0" >
+        <table>
+          <thead>
+            <tr>
+              <th fixed><span>&nbsp;</span></th>
+              <th fixed>&nbsp;</th>
+              <th fixed>&nbsp;</th>
+              <th *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null" class="col-sortable"
+                (click)="sortHeadcountBy(col.field)">
+                <span>{{col.title}}</span>
+                <i class="fas fa-sort-down sort-icon"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr [ngClass]="{'filters-hidden': !showFilters}">
+              <td fixed>&nbsp;</td>
+              <td fixed>&nbsp;</td>
+              <td fixed>&nbsp;</td>
+              <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
+                <input type="text" />
+              </td>
+            </tr>
+            <tr *ngFor="let item of headcountItems">
+              <td fixed>
+                <span><i class="far fa-eye"></i></span>
+              </td>
+              <td fixed>
+                <span><input type="checkbox" /></span>
+              </td>
+              <td fixed>
+                <span *ngIf="item['approval_status'] !== 'Approved'"><i class="fas fa-lock"></i></span>
+                <pion-context-menu *ngIf="item['approval_status'] === 'Approved'" [menuItems]="roleContextMenuItems">
+                  <i class="fas fa-bars dropdown-handle"></i>
+                </pion-context-menu>
+              </td>
+              <td *ngFor="let col of COLS_MAPPINGS" [attr.fixed]="col.fixed ? true : null">
+                <span>{{item[col.field]}}</span>
+                <ng-container [ngSwitch]="col.field">
+                  <span *ngSwitchCase="'ctoolId'">
+                    &nbsp;&nbsp;<i class="fas fa-link"></i>
+                  </span>
+                  <span *ngSwitchCase="'position_id'">
+                    &nbsp;&nbsp;<i class="fas fa-link"></i>
+                  </span>
+                  <span *ngSwitchCase="'approval_status'">
+                    <span *ngIf="item[col.field] == 'Approved'">&nbsp;&nbsp;<i
+                        class="fas fa-exclamation approved-icon"></i></span>
+                  </span>
+                  <span *ngSwitchCase="'pending_with'">
+                    <span *ngIf="item[col.field] == 'Business Manger'">&nbsp;&nbsp;<i
+                        class="fas fa-info-circle info-icon"></i></span>
+                  </span>
+                </ng-container>
+
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </pion-dynamic-grid>
+      <pion-pagination [pageNo]="reqData.pageNo" [pageOffset]="reqData.pageOffset" [totalCount]="totalCount"
+        (pageNoChanged)="getNewPageData($event)" (pageOffsetChanged)="getNewPageOffsetData($event)">
+      </pion-pagination>
+    </div>
+
+  </div> -->
+  <router-outlet></router-outlet>
+</div>

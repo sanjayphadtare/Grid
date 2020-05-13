@@ -1,0 +1,138 @@
+{
+    "result": {
+      "statusCode": 200,
+      "columns": [
+        { "title": "CToolId", "field": "position_id", "sortable": true, "fixed": true },
+        { "title": "Approval Status", "field": "approval_status", "sortable": true, "fixed": true },
+        { "title": "Pending With", "field": "pending_with", "sortable": true, "fixed": false },
+        { "title": "Employee Id", "field": "ghrs_employee_id", "sortable": true, "sorter": "number" , "fixed": false},
+        { "title": "Full Name", "field": "employee_name", "sortable": true, "fixed": false },
+        { "title": "Direct Cost - Rest of the Year($)", "field": "rate_amount", "sortable": false, "fixed": false },
+        { "title": "Role Start Date", "field": "plan_start_date", "sortable": true, "fixed": false },
+        { "title": "Role End Date", "field": "position_end_date", "sortable": true, "fixed": false },
+        { "title": "Employee Class", "field": "employee_class", "sortable": true, "fixed": false },
+        { "title": "Country", "field": "country_name", "sortable": true, "fixed": false },
+        { "title": "Contract Type", "field": "contract_type", "sortable": true, "fixed": false }
+      ],
+      "data": [
+        {
+          "position_id": "100024",
+          "approval_status": "Pending",
+          "pending_with": "Hiring Manger",
+          "ghrs_employee_id": "44121199",
+          "employee_name": "Huang cheng lee cvvddfdfd erererererere Huang cheng lee cvvddfdfd erererererere",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"India",
+          "contract_type":"Permanent"
+        },
+        {
+          "position_id": "100025",
+          "approval_status": "Approved",
+          "pending_with": "Business Manger",
+          "ghrs_employee_id": "44121190",
+          "employee_name": "Kiran",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"UK",
+          "contract_type":"Permanent"
+        },
+         {
+          "position_id": "100027",
+          "approval_status": "Pending",
+          "pending_with": "Hiring Manger",
+          "ghrs_employee_id": "44121195",
+          "employee_name": "samsun",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"UK",
+          "contract_type":"Permanent"
+        },
+        {
+          "position_id": "100024",
+          "approval_status": "Pending",
+          "pending_with": "Hiring Manger",
+          "ghrs_employee_id": "44121199",
+          "employee_name": "Huang",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"India",
+          "contract_type":"Permanent"
+        },
+        {
+          "position_id": "100025",
+          "approval_status": "Approved",
+          "pending_with": "Business Manger",
+          "ghrs_employee_id": "44121190",
+          "employee_name": "Kiran",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"UK",
+          "contract_type":"Permanent"
+        },
+         {
+          "position_id": "100027",
+          "approval_status": "Pending",
+          "pending_with": "Hiring Manger",
+          "ghrs_employee_id": "44121195",
+          "employee_name": "samsun",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"UK",
+          "contract_type":"Permanent"
+        },
+        {
+          "position_id": "100024",
+          "approval_status": "Pending",
+          "pending_with": "Hiring Manger",
+          "ghrs_employee_id": "44121199",
+          "employee_name": "Huang",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"India",
+          "contract_type":"Permanent"
+        },
+        {
+          "position_id": "100025",
+          "approval_status": "Pending",
+          "pending_with": "Business Manger",
+          "ghrs_employee_id": "44121190",
+          "employee_name": "Kiran",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"UK",
+          "contract_type":"Permanent"
+        },
+         {
+          "position_id": "100027",
+          "approval_status": "Pending",
+          "pending_with": "Hiring Manger",
+          "ghrs_employee_id": "44121195",
+          "employee_name": "samsun",
+          "rate_amount":"5267.99",
+          "plan_start_date":"2018-07-01",
+          "position_end_date":"2019-01-12",
+          "employee_class":"L",
+          "country_name":"UK",
+          "contract_type":"Permanent"
+        }
+      ],
+      "errorMessage": null
+    }
+  }

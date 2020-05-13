@@ -1,0 +1,22 @@
+<div class="menubar">
+  <div class="menubar-left">
+    <div class="menu-items" *ngIf="(selectedMenu$ | async) as selMenu">
+      <div class="menu-item" [ngClass]="{'menu-item-selected': selMenu === AppMenus.DASHBOARD}"
+        (click)="navigateByUrl('dashboard')">
+        <span>Dashboard</span>
+      </div>
+      <div class="mg-hz-md">&nbsp;</div>
+      <div class="menu-item" [ngClass]="{'menu-item-selected': selMenu === AppMenus.HEADCOUNT}"
+        (click)="navigateByUrl('headcount')">
+        <span>Headcount</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="menubar-right">
+    <div class="btn btn-icon btn-no-color btn-border" (click)="navigateByUrl('new-role')">
+      <i class="fas fa-user-plus"></i>
+      <span>Create new role</span>
+    </div>
+  </div>
+</div>

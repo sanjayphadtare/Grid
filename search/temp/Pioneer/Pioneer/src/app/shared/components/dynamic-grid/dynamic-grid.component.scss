@@ -1,0 +1,40 @@
+@import "abstracts/variables";
+@import "themes/theme";
+
+.grid {
+  box-sizing: border-box;
+  border: 1px solid $color-headers;
+  margin-bottom: 40px;
+
+  ::ng-deep table {
+    border-collapse: collapse;
+    width: 100%;
+
+    th, td {
+      border-right: 1px solid $color-headers;
+      border-bottom: 1px solid $color-headers;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+      white-space: nowrap !important;
+    }
+
+    th {
+      background-color: $color-headers;
+      font-size: 12px;
+      line-height: 16px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-color: $color-body;
+    }
+
+    td {
+      border-color: $color-headers;
+      background-color: $color-body;
+    }
+
+    // [fixed] {
+    //   background-color: $color-headers;
+    // }
+  }
+}

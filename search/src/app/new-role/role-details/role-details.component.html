@@ -1,0 +1,203 @@
+<div class="role-details">
+
+  <!--Workforce Planning Details-->
+  <accordion [isAnimated]="true">
+    <accordion-group [isOpen]="true">
+      <div accordion-heading class="accordion-heading">
+        <h3 class='heading-text'>Workforce planning details</h3>
+        <i class="fas fa-chevron-down accordion-show-icon"></i>
+      </div>
+      <div>
+        <div class="form-field">
+          <span class="form-field-label">Hire type<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="hireTypes" [selectedItem]="hireTypes[0]"></pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Number of roles</span>
+          <input class="form-field-input" value="10" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Role action type<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="roleActionTypes" [selectedItem]="roleActionTypes[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Linked cTool ID</span>
+          <input class="form-field-input" value="789780689" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Employee class<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="empClasses" [selectedItem]="empClasses[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Role start date<span class="field-required">*</span></span>
+          <pion-datepicker class="form-field-input"></pion-datepicker>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Role end date<span class="field-required">*</span></span>
+          <pion-datepicker class="form-field-input"></pion-datepicker>
+        </div>
+      </div>
+    </accordion-group>
+
+    <div class="mg-vt-lg sep-vt-primary"></div>
+
+    <!-- Organization details-->
+    <accordion-group [isOpen]="true">
+      <div accordion-heading class="accordion-heading">
+        <h3 class='heading-text'>Organizational details</h3>
+        <i class="fas fa-chevron-down accordion-show-icon"></i>
+      </div>
+      <div>
+        <div class="form-field">
+          <span class="form-field-label">BF level 3 name<span class="field-required">*</span></span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">BF level 4 name<span class="field-required">*</span></span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">BF level 5 name<span class="field-required">*</span></span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">City<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="cities" [selectedItem]="cities[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Country<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="countries" [selectedItem]="countries[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Location<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="countries" [selectedItem]="countries[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Cost centre<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="countries" [selectedItem]="countries[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Legal entity<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="countries" [selectedItem]="countries[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Justification for high cost role<span class="field-required">*</span></span>
+          <textarea class="form-field-input" value="Lorem ipsum"></textarea>
+        </div>
+      </div>
+    </accordion-group>
+
+    <div class="mg-vt-lg sep-vt-primary"></div>
+
+    <!-- Manager details -->
+    <accordion-group [isOpen]="true">
+      <div accordion-heading class="accordion-heading">
+        <h3 class='heading-text'>Manager details</h3>
+        <i class="fas fa-chevron-down accordion-show-icon"></i>
+      </div>
+      <div>
+        <div class="form-field">
+          <span class="form-field-label">Managment team member ID</span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Managment team member</span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Functional manager employee ID<span class="field-required">*</span></span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Functional manager name</span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Entity manager employee ID<span class="field-required">*</span></span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Entity manager name</span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+      </div>
+    </accordion-group>
+
+    <div class="mg-vt-lg sep-vt-primary"></div>
+
+    <!-- Job details -->
+    <accordion-group [isOpen]="true">
+      <div accordion-heading class="accordion-heading">
+        <h3 class='heading-text'>Job details</h3>
+        <i class="fas fa-chevron-down accordion-show-icon"></i>
+      </div>
+      <div>
+        <div class="form-field">
+          <span class="form-field-label">Job Category<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="hireTypes" [selectedItem]="hireTypes[0]"></pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Position title <span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="hireTypes" [selectedItem]="hireTypes[0]"></pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Skill<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="roleActionTypes" [selectedItem]="roleActionTypes[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Position class<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="roleActionTypes" [selectedItem]="roleActionTypes[0]">
+          </pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Role position ID</span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Additional information describing this role<span
+              class="field-required">*</span></span>
+          <textarea class="form-field-input"></textarea>
+        </div>
+      </div>
+    </accordion-group>
+
+    <div class="mg-vt-lg sep-vt-primary"></div>
+
+    <!--Vendor details-->
+    <accordion-group [isOpen]="true">
+      <div accordion-heading class="accordion-heading">
+        <h3 class='heading-text'>Vendor details</h3>
+        <i class="fas fa-chevron-down accordion-show-icon"></i>
+      </div>
+      <div>
+        <div class="form-field">
+          <span class="form-field-label">Vendor Category<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="hireTypes" [selectedItem]="hireTypes[0]"></pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Vendor</span>
+          <pion-dropdown class="form-field-input" [items]="hireTypes" [selectedItem]="hireTypes[0]"></pion-dropdown>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Maximum day rate($)<span class="field-required">*</span></span>
+          <input class="form-field-input" value="Lorem ipsum" />
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Contract type<span class="field-required">*</span></span>
+          <pion-dropdown class="form-field-input" [items]="roleActionTypes" [selectedItem]="roleActionTypes[0]">
+          </pion-dropdown>
+        </div>
+      </div>
+    </accordion-group>
+
+  </accordion>
+
+</div>

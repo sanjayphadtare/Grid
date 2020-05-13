@@ -1,0 +1,26 @@
+@import 'abstracts/variables';
+@import 'themes/theme';
+
+.date-picker {
+  padding: rem(5px 10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  & > * {
+    padding: rem(5px 0);
+  }
+  &-input {
+    border: none;
+    flex: 1;
+    &:focus {
+      outline: none;
+    }
+  }
+  &-icon {
+    font-size: 1.1em;
+    padding-left: rem(10px) !important;
+    border-left: 1px solid darken($color-light-border, 5%);
+    cursor: pointer;
+  }
+}
